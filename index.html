@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Lunara | Trendy Short Kurtis for Girls</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fef9f5;
+            color: #1e1e2a;
+            scroll-behavior: smooth;
+        }
+
+        /* premium color accents */
+        :root {
+            --primary: #c44569;
+            --secondary: #f8a5c2;
+            --dark: #2c3e50;
+            --light: #fff9f7;
+        }
+
+        /* navigation */
+        nav {
+            background: #ffffffdd;
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ffe2d4;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #c44569, #f190b0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2d3436;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #c44569;
+            border-bottom: 2px solid #c44569;
+            padding-bottom: 4px;
+        }
+
+        /* main container */
+        .page {
+            display: none;
+            padding: 2rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            animation: fadeInUp 0.4s ease;
+        }
+        .active-page {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(12px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* section headers */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            width: 60%;
+            height: 4px;
+            background: #f8a5c2;
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            border-radius: 8px;
+        }
+
+        /* 4 design cards grid (different designs, each distinct color) */
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .design-card {
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.2s;
+            text-align: center;
+            padding-bottom: 1.2rem;
+        }
+        .design-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 36px -14px rgba(0,0,0,0.15);
+        }
+        .design-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        .design-card:hover .design-img {
+            transform: scale(1.03);
+        }
+        .card-content {
+            padding: 1rem 1rem 0.5rem;
+        }
+        .design-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0.5rem 0 0.2rem;
+        }
+        .price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #c44569;
+            margin: 0.4rem 0;
+        }
+        .price small {
+            font-size: 0.85rem;
+            font-weight: normal;
+            color: #5d6e7e;
+        }
+        .btn-shop {
+            background: #fce4ec;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-top: 0.6rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #c44569;
+        }
+        .btn-shop:hover {
+            background: #c44569;
+            color: white;
+        }
+
+        /* slider for cloth designs (short kurti) */
+        .slider-container {
+            background: #ffece5;
+            border-radius: 2rem;
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+        .slider-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.8rem;
+            padding: 1rem 1rem 2rem 1rem;
+            scroll-behavior: smooth;
+        }
+        .slider::-webkit-scrollbar {
+            height: 6px;
+        }
+        .slider::-webkit-scrollbar-thumb {
+            background: #c44569;
+            border-radius: 20px;
+        }
+        .slide-item {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 1.5rem;
+            text-align: center;
+            padding: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .slide-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 1.2rem;
+            background: #f7e3db;
+            transition: transform 0.3s;
+        }
+        .slide-item:hover .slide-img {
+            transform: scale(0.98);
+        }
+        .slide-title {
+            font-weight: 700;
+            margin: 0.8rem 0 0.2rem;
+            font-size: 1.2rem;
+        }
+        .slide-price {
+            color: #c44569;
+            font-weight: 700;
+        }
+
+        /* about, product grid (extra), services, contact */
+        .about-text {
+            background: #fff5f0;
+            padding: 2rem;
+            border-radius: 2rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+        .product-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .product-card {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+        }
+        .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            text-align: center;
+            width: 220px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #ffe0d4;
+        }
+        .contact-info {
+            background: #f9ede7;
+            padding: 2rem;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 500px;
+            margin: 1rem 0;
+        }
+        .contact-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            background: white;
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #f1e3dd;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #4a4e69;
+        }
+        /* responsive */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+        button {
+            background: none;
+            border: none;
+        }
+        i {
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">LUNARA <span>✦ Studio</span></div>
+    <div class="nav-links">
+        <a href="#" data-page="home" class="nav-link active">Home</a>
+        <a href="#" data-page="about" class="nav-link">About</a>
+        <a href="#" data-page="product" class="nav-link">Product</a>
+        <a href="#" data-page="services" class="nav-link">Services</a>
+        <a href="#" data-page="contact" class="nav-link">Contact</a>
+    </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home-page" class="page active-page">
+    <div style="text-align: center; margin-bottom: 1rem;">
+        <h1 class="section-title" style="font-size: 2.5rem;">Fresh & Festive Short Kurtis</h1>
+        <p style="color: #5a5e6c; margin-top: 0.5rem;">Student-friendly pricing • ₹800 – ₹2000 • Trendy new arrivals</p>
+    </div>
+
+    <!-- 4 different design sections with 4 different colors each -->
+    <div class="design-grid">
+        <!-- Design 1 - Rosewood Bloom (Deep Rose) -->
+        <div class="design-card">
+            <div class="design-img" style="background-image: linear-gradient(125deg, #ffb7c5, #ff8da1), url('https://placehold.co/600x800/FFB7C5/FFFFFF?text=Floral+Kurti'); background-blend-mode: overlay; background-size: cover;"></div>
+            <div class="card-content">
+                <div class="design-name" style="color:#b13e5c;">🌸 Rosewood Bloom</div>
+                <p>Floral A-line short kurti, cotton blend</p>
+                <div class="price">₹899 <small>was ₹1499</small></div>
+                <button class="btn-shop">Shop Now →</button>
+            </div>
+        </div>
+        <!-- Design 2 - Mint Majestic (Seafoam Green) -->
+        <div class="design-card">
+            <div class="design-img" style="background-image: linear-gradient(125deg, #c8f0e7, #a2e0d2), url('https://placehold.co/600x800/C8F0E7/FFFFFF?text=Mint+Kurti'); background-blend-mode: overlay; background-size: cover;"></div>
+            <div class="card-content">
+                <div class="design-name" style="color:#2c7a64;">🍃 Mint Majestic</div>
+                <p>Pintuck details, puff sleeves</p>
+                <div class="price">₹1199 <small>was ₹1799</small></div>
+                <button class="btn-shop">Shop Now →</button>
+            </div>
+        </div>
+        <!-- Design 3 - Lavender Dream (Soft Purple) -->
+        <div class="design-card">
+            <div class="design-img" style="background-image: linear-gradient(125deg, #e3d6ff, #caafff), url('https://placehold.co/600x800/E3D6FF/FFFFFF?text=Lavender+Kurti'); background-blend-mode: overlay; background-size: cover;"></div>
+            <div class="card-content">
+                <div class="design-name" style="color:#7b4b9e;">💜 Lavender Dream</div>
+                <p>Embroidered yoke, block print</p>
+                <div class="price">₹1399 <small>was ₹1999</small></div>
+                <button class="btn-shop">Shop Now →</button>
+            </div>
+        </div>
+        <!-- Design 4 - Saffron Shine (Warm Amber) -->
+        <div class="design-card">
+            <div class="design-img" style="background-image: linear-gradient(125deg, #ffd5a4, #ffbc6e), url('https://placehold.co/600x800/FFD5A4/FFFFFF?text=Saffron+Kurti'); background-blend-mode: overlay; background-size: cover;"></div>
+            <div class="card-content">
+                <div class="design-name" style="color:#c26a2e;">🌻 Saffron Shine</div>
+                <p> Mirror work, rayon fabric</p>
+                <div class="price">₹1599 <small>was ₹2299</small></div>
+                <button class="btn-shop">Shop Now →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider: 4 different cloth designs (short kurti) for girls, new trend, affordable -->
+    <div class="slider-container">
+        <div class="slider-title">✨ Trending Short Kurti 2025 ✨</div>
+        <div class="slider">
+            <div class="slide-item">
+                <img class="slide-img" src="https://placehold.co/400x500/F8D3E0/FFFFFF?text=Embroidery+Kurti" alt="Kurti design 1">
+                <div class="slide-title">Pastel Chic Kurti</div>
+                <p>Hand-block print | A-line</p>
+                <div class="slide-price">₹899</div>
+            </div>
+            <div class="slide-item">
+                <img class="slide-img" src="https://placehold.co/400x500/CAE7D9/FFFFFF?text=Printed+Short+Kurti" alt="Kurti design 2">
+                <div class="slide-title">Mint Floral Magic</div>
+                <p>Regular fit, pocket detail</p>
+                <div class="slide-price">₹1199</div>
+            </div>
+            <div class="slide-item">
+                <img class="slide-img" src="https://placehold.co/400x500/FDE2C4/FFFFFF?text=Striped+Kurti" alt="Kurti design 3">
+                <div class="slide-title">Sunrise Stripe</div>
+                <p>Trendy asymmetric hem</p>
+                <div class="slide-price">₹999</div>
+            </div>
+            <div class="slide-item">
+                <img class="slide-img" src="https://placehold.co/400x500/E0D3FF/FFFFFF?text=Indigo+Block" alt="Kurti design 4">
+                <div class="slide-title">Lavender Indigo</div>
+                <p>Smocked sleeves, tassel</p>
+                <div class="slide-price">₹1499</div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 0.8rem; font-size: 0.85rem;"><i class="fas fa-arrow-left"></i>  swipe to see more  <i class="fas fa-arrow-right"></i></p>
+    </div>
+
+    <!-- affordable message -->
+    <div style="background: #f3e1d8; padding: 1.2rem; border-radius: 2rem; text-align: center; margin: 1rem 0;">
+        <i class="fas fa-graduation-cap"></i> Special student discount! All kurtis ₹800 - ₹2000 | Easy exchange & COD
+    </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about-page" class="page">
+    <h2 class="section-title">About Lunara</h2>
+    <div class="about-text">
+        <p><strong>Lunara</strong> was born from the love of effortless ethnic fashion for young women and college students. We believe style shouldn't break the bank, which is why our <strong>short kurti collection</strong> blends modern trends with traditional aesthetics — all priced between ₹800 and ₹2000.</p>
+        <p style="margin-top: 0.8rem;">Every piece is handpicked to reflect vibrant colors, breezy fabrics, and designs that transition from class to casual hangouts. Our '4 designs, 4 colors' philosophy ensures there's a unique silhouette for every girl's personality. 🌸</p>
+        <p style="margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> Based in Jaipur | Shipping across India</p>
+    </div>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;">
+        <div style="background: #ffe1d4; border-radius: 1rem; padding: 1rem; flex:1; text-align:center;"><i class="fas fa-tshirt"></i> 50+ Kurti styles</div>
+        <div style="background: #ffd9e6; border-radius: 1rem; padding: 1rem; flex:1; text-align:center;"><i class="fas fa-hourglass-half"></i> 4-day delivery</div>
+        <div style="background: #d9f0ec; border-radius: 1rem; padding: 1rem; flex:1; text-align:center;"><i class="fas fa-rupee-sign"></i> Price match guarantee</div>
+    </div>
+</div>
+
+<!-- PRODUCT PAGE (more kurti designs + show range) -->
+<div id="product-page" class="page">
+    <h2 class="section-title">Our Signature Kurtis</h2>
+    <p style="margin-top: 0.5rem;">Discover 4 unique designs, each in 4 fresh colorways — perfect for students.</p>
+    <div class="product-highlight">
+        <div class="product-card"><img src="https://placehold.co/300x300/FADADD/FFFFFF?text=Peach+Kurti" style="width:100%; border-radius: 1rem;"><h3>Peaches & Cream</h3><p>₹849</p><button class="btn-shop">Select</button></div>
+        <div class="product-card"><img src="https://placehold.co/300x300/D9E5D6/FFFFFF?text=Sage+Kurti" style="width:100%; border-radius: 1rem;"><h3>Sage Embroidery</h3><p>₹1149</p><button class="btn-shop">Select</button></div>
+        <div class="product-card"><img src="https://placehold.co/300x300/FCE1B9/FFFFFF?text=Mustard+Kurti" style="width:100%; border-radius: 1rem;"><h3>Golden Hour</h3><p>₹1299</p><button class="btn-shop">Select</button></div>
+        <div class="product-card"><img src="https://placehold.co/300x300/CFC9F2/FFFFFF?text=Lilac+Print" style="width:100%; border-radius: 1rem;"><h3>Lilac Layers</h3><p>₹1599</p><button class="btn-shop">Select</button></div>
+    </div>
+    <p style="background: #fff0e7; border-radius: 1.5rem; padding: 1rem; font-size: 0.9rem;"><i class="fas fa-tag"></i> Price range ₹800 - ₹2000 | All kurtis come with free adjusting belt & styling guide.</p>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="services-page" class="page">
+    <h2 class="section-title">Our Services</h2>
+    <div class="service-grid">
+        <div class="service-card"><i class="fas fa-exchange-alt fa-2x" style="color:#c44569;"></i><h3>Easy Returns</h3><p>14-day hassle-free exchange</p></div>
+        <div class="service-card"><i class="fas fa-tachometer-alt fa-2x" style="color:#c44569;"></i><h3>Quick Shipping</h3><p>Free shipping above ₹999</p></div>
+        <div class="service-card"><i class="fas fa-credit-card fa-2x" style="color:#c44569;"></i><h3>Student COD</h3><p>Pay on delivery available</p></div>
+        <div class="service-card"><i class="fas fa-tshirt fa-2x" style="color:#c44569;"></i><h3>Custom Stitching</h3><p>Alteration at minimal cost</p></div>
+    </div>
+    <div class="about-text">
+        <p><i class="fas fa-concierge-bell"></i> <strong>Personal Stylist Assistance</strong> — chat with our experts to pick the perfect short kurti that matches your college vibe. Lunara ensures every girl finds her dream ethnic wear within student budget.</p>
+    </div>
+</div>
+
+<!-- CONTACT PAGE WITH PHONE NUMBER AND EXTRA DETAILS -->
+<div id="contact-page" class="page">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-info">
+        <div><i class="fas fa-phone-alt"></i> <strong>Call / WhatsApp</strong><br><span class="contact-number">9861929569</span></div>
+        <div><i class="fas fa-envelope"></i> <strong>Email</strong><br> hello@lunarastyle.com</div>
+        <div><i class="fas fa-store"></i> <strong>Store Hours</strong><br> Mon-Sat: 10AM - 7PM</div>
+        <div><i class="fab fa-instagram"></i> <strong>Instagram</strong><br> @lunara.clothing</div>
+    </div>
+    <p style="margin-top: 1rem;">📢 For bulk orders for college fests, reach out to 9861929569 and get special discounts!</p>
+    <div style="background:#f8e1d6; padding: 1rem; border-radius: 1rem; margin-top: 1rem;">
+        <i class="fas fa-map-pin"></i> Visit our flagship studio: 42, Fashion Street, Jaipur, Rajasthan
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 LUNARA — affordable short kurtis for students | trendy designs ₹800 to ₹2000 | All rights reserved.</p>
+    <p style="margin-top: 0.5rem;"><i class="fas fa-heart" style="color:#c44569;"></i> Crafted with love for girls who slay ethnic</p>
+</footer>
+
+<script>
+    // simple page navigation
+    const pages = {
+        home: document.getElementById('home-page'),
+        about: document.getElementById('about-page'),
+        product: document.getElementById('product-page'),
+        services: document.getElementById('services-page'),
+        contact: document.getElementById('contact-page')
+    };
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+    function setActivePage(pageId) {
+        // deactivate all pages
+        Object.values(pages).forEach(page => {
+            if(page) page.classList.remove('active-page');
+        });
+        if(pages[pageId]) pages[pageId].classList.add('active-page');
+
+        // update active nav style
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('data-page');
+            if(linkPage === pageId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        // scroll to top on page change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-page');
+            if(page) setActivePage(page);
+        });
+    });
+
+    // initial active check (home)
+    const currentHash = window.location.hash.replace('#', '');
+    if(currentHash && pages[currentHash]) setActivePage(currentHash);
+    else setActivePage('home');
+
+    // simple shop buttons animation alert (just for demo purpose)
+    const allShopBtns = document.querySelectorAll('.btn-shop');
+    allShopBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('✨ Added to cart! ✨ Contact us at 9861929569 for quick order & student offers.');
+        });
+    });
+
+    // optional slide scroll left/right ? Not mandatory but enhance — but we keep slider horizontal scroll pure css.
+    console.log("Lunara — your trendy short kurti destination 🌸");
+</script>
+</body>
+</html>
